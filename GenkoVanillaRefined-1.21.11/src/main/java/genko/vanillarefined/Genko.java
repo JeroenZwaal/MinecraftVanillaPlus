@@ -1,5 +1,7 @@
 package genko.vanillarefined;
 
+import genko.vanillarefined.registry.ModEffects;
+import genko.vanillarefined.registry.ModEntities;
 import genko.vanillarefined.registry.ModItemGroups;
 import genko.vanillarefined.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -14,7 +16,8 @@ public class Genko implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
-
 		ModItems.registerModItems();
+		ModEntities.register();
+		ModEffects.register();
 	}
 }

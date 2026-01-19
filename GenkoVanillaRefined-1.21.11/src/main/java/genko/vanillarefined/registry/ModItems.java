@@ -1,7 +1,6 @@
 package genko.vanillarefined.registry;
-
 import genko.vanillarefined.Genko;
-import genko.vanillarefined.content.item.SlingShotItem;
+import genko.vanillarefined.content.item.slingshot.SlingShotItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -10,23 +9,21 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-//    public static final Item SlingShot = registerModItem("slingshot", new Item(new Item.Settings().maxCount(1)));
 
-//    private static Item registerModItem(String path, Item item) {
-//        return Registry.register(Registries.ITEM, Identifier.of(Genko.MOD_ID, path), item);
-//    }
+    public static final Item SLINGSHOT = registerModItem("slingshot",settings -> new SlingShotItem(settings.maxCount(1).maxDamage(128)));
 
-    public static final Item SlingShot = registerModItem("slingshot", settings -> settings.maxCount(1));
 
-    private static Item registerModItem(String path, java.util.function.UnaryOperator<Item.Settings> settingsOp) {
+    private static Item registerModItem(String path, java.util.function.Function<Item.Settings, Item> factory) {
         Identifier id = Identifier.of(Genko.MOD_ID, path);
+
         Item.Settings settings = new Item.Settings()
                 .registryKey(RegistryKey.of(RegistryKeys.ITEM, id));
 
-        settings = settingsOp.apply(settings);
-
-        return Registry.register(Registries.ITEM, id, new Item(settings));
+        Item item = factory.apply(settings);
+        return Registry.register(Registries.ITEM, id, item);
     }
+
+
 
     public static void registerModItems() {
         Genko.LOGGER.info("Registering Mod items for " + Genko.MOD_ID);

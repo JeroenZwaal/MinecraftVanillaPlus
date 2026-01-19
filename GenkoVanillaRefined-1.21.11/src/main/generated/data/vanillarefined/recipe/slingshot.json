@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": "minecraft:stick",
+    "S": "minecraft:string",
+    "T": "minecraft:leather"
+  },
+  "pattern": [
+    " S",
+    "LT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vanillarefined:slingshot"
+  }
+}

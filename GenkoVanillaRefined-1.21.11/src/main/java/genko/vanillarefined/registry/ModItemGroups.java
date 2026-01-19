@@ -12,7 +12,7 @@ public final class ModItemGroups {
         Genko.LOGGER.info("Registering creative tab entries for " + Genko.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
-            entries.add(ModItems.SlingShot);
+            entries.add(ModItems.SLINGSHOT);
         });
     }
 }
