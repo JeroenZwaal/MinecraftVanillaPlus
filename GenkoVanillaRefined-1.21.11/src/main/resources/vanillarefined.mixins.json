@@ -3,7 +3,8 @@
 	"package": "genko.vanillarefined.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-      "ExampleMixin"
+      	"ExampleMixin",
+		"FletchingTableBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
